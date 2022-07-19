@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 const Login = (props) => {
-  console.log(process.env)
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
