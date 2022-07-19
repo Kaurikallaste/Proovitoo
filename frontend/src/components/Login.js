@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 const Login = (props) => {
+  console.log(process.env)
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,7 +14,7 @@ const Login = (props) => {
     formData.append("name", name);
     formData.append("password", password);
 
-    fetch('http://localhost/proovitoo/backend/api/auth.php',
+    fetch(process.env.REACT_APP_BACKEND_URL + '/auth.php',
       {
         method: 'POST',
         credentials: 'include',

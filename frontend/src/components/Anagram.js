@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-
-
 const Anagram = () => {
     const [word, setWord] = useState("");
     const [anagrams, setAnagrams] = useState([]);
@@ -10,7 +8,7 @@ const Anagram = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost/proovitoo/backend/api/anagram.php?word=' + word,
+        fetch(process.env.REACT_APP_BACKEND_URL + '/anagram.php?word=' + word,
             {
                 method: 'GET',
                 credentials: 'include'

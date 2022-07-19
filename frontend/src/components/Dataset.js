@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-
 const Dataset = () => {
     const [selectedFile, setSelectedFile] = useState();
 
@@ -13,7 +12,7 @@ const Dataset = () => {
 
         toast("Uploading dataset");
 
-        fetch('http://localhost/proovitoo/backend/api/dataset.php',
+        fetch(process.env.REACT_APP_BACKEND_URL + '/dataset.php',
             {
                 method: 'POST',
                 credentials: 'include',

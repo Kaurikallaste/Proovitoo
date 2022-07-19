@@ -3,7 +3,7 @@ import React from 'react';
 const Logout = (props) => {
 
   const handleSubmit = (e) => {
-    fetch('http://localhost/proovitoo/backend/api/logout.php',
+    fetch(process.env.REACT_APP_BACKEND_URL + '/logout.php',
       {
         method: 'GET',
         credentials: 'include'
