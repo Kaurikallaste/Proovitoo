@@ -24,10 +24,10 @@ const Anagram = () => {
                             setFetched(true);
                             break;
                         case 400:
-                            toast.warning(data.error);
+                            toast.warning(data.message);
                             break;
                         case 500:
-                            toast.error(data.error);
+                            toast.error(data.message);
                             break;
                         default:
                             toast.error("Undefined");

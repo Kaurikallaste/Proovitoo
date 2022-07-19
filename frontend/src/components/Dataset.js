@@ -23,13 +23,13 @@ const Dataset = () => {
                 .then(data => {
                     switch (response.status) {
                         case 200:
-                            toast.success(data.success);
+                            toast.success(data.message);
                             break;
                         case 400:
-                            toast.warning(data.error);
+                            toast.warning(data.message);
                             break;
                         case 500:
-                            toast.error(data.error);
+                            toast.error(data.message);
                             break;
                         default:
                             toast.error("Undefined");

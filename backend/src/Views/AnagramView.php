@@ -28,7 +28,7 @@ class AnagramView extends View {
             }
         } else {
             http_response_code(400);
-            echo json_encode(["anagrams" => [], "error" => "Please type a word into the input field"]);
+            echo json_encode(["anagrams" => [], "message" => "Please type a word into the input field"]);
         }
     }
 }

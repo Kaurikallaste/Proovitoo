@@ -26,10 +26,10 @@ const Login = (props) => {
               props.setIsLoggedIn(true);
               break;
             case 401:
-              toast.error(data.error);
+              toast.error(data.message);
               break;
             case 500:
-              toast.error(data.error);
+              toast.error(data.message);
               break;
             default:
               toast.error("Undefined");

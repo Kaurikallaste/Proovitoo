@@ -16,13 +16,19 @@ class AuthController extends Controller {
         return self::$instance;
     }
 
-    public function authUser($name, $password) {
+    /**
+     * Verifies user credentials and returns JWT and isloggedin cookies if true
+     * 
+     * @param String name
+     * @param String password
+     */
+    public function authUser($name, $password): void {
         $userData = self::$db->fetch("SELECT * FROM users WHERE name=?",[$name]);
 
         if(empty($userData)) {
             http_response_code(401);
-            echo json_encode(["error" => "Invalid username"]);
-            return null;
+            echo json_encode(["message" => "Invalid username"]);
+            die;
         }
 
         if(password_verify($password, $userData["password"])) {
@@ -41,11 +47,12 @@ class AuthController extends Controller {
                 "samesite" => "strict"
                 //secure
             ];
+            echo json_encode(["message" => "User logged in"]);
             setcookie("jsonwebtoken", $jwt, $options);
             setcookie("isloggedin", "true", $optionsisLoggedIn);
         } else {
             http_response_code(401);
-            echo json_encode(["error" => "Invalid password"]);
+            echo json_encode(["message" => "Invalid password"]);
         }
     }
 
@@ -64,7 +71,7 @@ class AuthController extends Controller {
             'nbf' => time(),
             'exp' => time() + 60*60*24
         ];
-        return JWT::encode($payload, $key, 'HS256');
+        return JWT::encode($payload, $key, Config::get("jwt.alg"));
     }
 
     /**
@@ -77,7 +84,7 @@ class AuthController extends Controller {
     public static function verifyJWT($jwt): bool {
         $key = Config::get("jwt.key");
         try {
-            $decoded = JWT::decode($jwt, new Key($key, 'HS256'));
+            $decoded = JWT::decode($jwt, new Key($key, Config::get("jwt.alg")));
 
             if ($decoded->nbf < time() ||
                 $decoded->exp > time()) {

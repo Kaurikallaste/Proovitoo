@@ -26,11 +26,11 @@ class DatasetView extends View {
                     case "txt":
                         $dataset = self::$controller->handleTextDataset($data);
                         self::$controller->saveDataset($dataset);
-                        echo json_encode(["success" => "Dataset ${path} uploaded"]);
+                        echo json_encode(["message" => "Dataset ${path} uploaded"]);
                         break;
                     default:
                         http_response_code(400);
-                        echo json_encode(["error" => "Filetype not supported"]);
+                        echo json_encode(["message" => "Filetype not supported"]);
                         break;
                 }
             } catch(Exception $e) {
@@ -38,7 +38,7 @@ class DatasetView extends View {
             }
         } else {
             http_response_code(400);
-            echo json_encode(["error" => "Choose a file to upload"]);
+            echo json_encode(["message" => "Choose a file to upload"]);
         }
     }
 }

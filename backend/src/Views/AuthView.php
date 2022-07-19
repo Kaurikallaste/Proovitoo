@@ -25,21 +25,19 @@ class AuthView extends View {
             try {
                 http_response_code(200);
                 self::$controller->authUser($name, $password);
-                echo json_encode(["success" => "success"]);
             } catch(Exception $e) {
                 $this->returnErrJson($e);
             }
         } else {
-            echo json_encode(["error" => "No user credentials"]);
+            echo empty($name) ? json_encode(["message" => "No username"]) : json_encode(["message" => "No password"]);
             http_response_code(401);
         }
     }
 
+    /**
+     * Handle GET request made to /logout endpoint
+     */
     public function logOutUser(): void {
         self::$controller::logOutUser();
-    }
-
-    public function verifyUser($jwt): bool {
-        return self::$controller->verifyJWT($jwt);
     }
 }
