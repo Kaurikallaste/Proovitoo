@@ -33,6 +33,16 @@ CREATE TABLE `users` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (2,'user','$2y$10$nRVNXHbQ2ATHP4LshQWSJ.DptSMz4hM/i1pQmFabOe4ycr4VskGRK');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `words`
 --
 
@@ -44,8 +54,17 @@ CREATE TABLE `words` (
   `word` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `word` (`word`)
-) ENGINE=InnoDB AUTO_INCREMENT=6943111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7299167 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `words`
+--
+
+LOCK TABLES `words` WRITE;
+/*!40000 ALTER TABLE `words` DISABLE KEYS */;
+/*!40000 ALTER TABLE `words` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -56,4 +75,4 @@ CREATE TABLE `words` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-19 13:59:28
+-- Dump completed on 2022-07-19 19:58:41
