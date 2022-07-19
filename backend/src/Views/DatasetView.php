@@ -20,7 +20,7 @@ class DatasetView extends View {
         if(isset($data["File"])) {
             try {
                 http_response_code(200);
-                $path = $data["File"]["full_path"];
+                $path = $data["File"]["name"];
                 $ext = pathinfo($path, PATHINFO_EXTENSION);
                 switch($ext){
                     case "txt":
