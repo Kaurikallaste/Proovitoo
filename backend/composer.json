@@ -1,0 +1,11 @@
+{
+    "require": {
+        "firebase/php-jwt": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Monolog\\": "src/",
+            "Vendor\\Namespace\\": ""
+        }
+    }
+}

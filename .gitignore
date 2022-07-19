@@ -1,0 +1,4 @@
+/backend/vendor
+/backend/config/config.inc.php
+
+/frontend/node_modules
