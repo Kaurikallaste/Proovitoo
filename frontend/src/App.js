@@ -8,27 +8,26 @@ import Dataset from './components/Dataset';
 import { ToastContainer } from 'react-toastify';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get("isloggedin"));
-
-  return (
-    <div>
-      <h1>ANAGRAMS</h1>
-      {!isLoggedIn &&
-        <Login setIsLoggedIn={setIsLoggedIn}/>
-      }
-      {isLoggedIn &&
+    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get("isloggedin"));
+    return (
         <div>
-          <Logout setIsLoggedIn={setIsLoggedIn}/>
-          <Dataset />
-          <Anagram />
+        <h1>ANAGRAMS</h1>
+        {!isLoggedIn &&
+            <Login setIsLoggedIn={setIsLoggedIn}/>
+        }
+        {isLoggedIn &&
+            <div>
+            <Logout setIsLoggedIn={setIsLoggedIn}/>
+            <Dataset />
+            <Anagram />
+            </div>
+        }
+        <ToastContainer 
+            hideProgressBar
+            closeOnClick/>
         </div>
-      }
-      <ToastContainer 
-        hideProgressBar
-        closeOnClick/>
-    </div>
-  );
-  
+    );
+
 }
 
 export default App;

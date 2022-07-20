@@ -34,7 +34,6 @@ const Anagram = () => {
                 }));
 
     }
-
     return (
         <div>
             <form onSubmit={e => handleSubmit(e)}>
