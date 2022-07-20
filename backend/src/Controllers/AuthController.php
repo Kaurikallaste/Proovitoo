@@ -1,6 +1,11 @@
 <?php
+namespace Proovitoo\Controllers;
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use Proovitoo\config;
+use Proovitoo\Models\User;
+use Exception;
 
 require(__DIR__."/../../vendor/autoload.php");
 require_once(__DIR__."/../Models/User.php");

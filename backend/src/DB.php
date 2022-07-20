@@ -1,5 +1,11 @@
 <?php
-require_once(__DIR__.'/../config/config.php');
+namespace Proovitoo;
+
+use PDO;
+use PDOException;
+use Proovitoo\Config;
+
+require_once(__DIR__.'/../config/Config.php');
 
 class DB {
     private static $instance;
@@ -13,8 +19,8 @@ class DB {
 
     function __construct() {
         try {
-            $dsn = "mysql:host=".\Config::get('database.host').";dbname=".\Config::get('database.database');
-            $this->pdo = new PDO($dsn, \Config::get('database.username'), \Config::get('database.password'), $this->options);
+            $dsn = "mysql:host=".Config::get('database.host').";dbname=".Config::get('database.database');
+            $this->pdo = new PDO($dsn, Config::get('database.username'), Config::get('database.password'), $this->options);
         } catch (PDOException $e) {
             throw new PDOException($e->getMessage(), (int)$e->getCode());
         }

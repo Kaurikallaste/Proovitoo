@@ -1,7 +1,12 @@
 <?php
+use Proovitoo\Config;
+use Proovitoo\Controllers\AuthController;
+use Proovitoo\Views\DatasetView;
+use Proovitoo\Views\AuthView;
+
 require_once(__DIR__."/../src/Views/DatasetView.php");
 require_once(__DIR__."/../src/Views/AuthView.php");
-require_once(__DIR__."/../config/config.php");
+require_once(__DIR__."/../config/Config.php");
 
 header("Access-Control-Allow-Origin: ".Config::get("frontend.url"));
 header("Access-Control-Allow-Credentials: true");

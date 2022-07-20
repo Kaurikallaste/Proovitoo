@@ -1,4 +1,9 @@
 <?php
+namespace Proovitoo\Views;
+
+use Proovitoo\Controllers\AnagramController;
+use Exception;
+
 require_once(__DIR__."/../Controllers/AnagramController.php");
 require_once("View.php");
 

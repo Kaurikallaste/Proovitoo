@@ -1,4 +1,8 @@
 <?php
+namespace Proovitoo\Controllers;
+
+use Proovitoo\Models\Word;
+
 require_once("Controller.php");
 require_once(__DIR__."/../Models/Word.php");
 

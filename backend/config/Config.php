@@ -1,4 +1,5 @@
 <?php
+namespace Proovitoo;
 
 if (!include_once('config.inc.php')) {
     die('Configuration missing');

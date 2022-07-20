@@ -1,4 +1,6 @@
 <?php
+namespace Proovitoo\Models;
+
 class User {
     private $id;
     private $name;

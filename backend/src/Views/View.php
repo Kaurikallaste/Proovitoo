@@ -1,4 +1,8 @@
 <?php
+namespace Proovitoo\Views;
+
+use Exception;
+
 require_once(__DIR__."/../Controllers/AuthController.php");
 
 abstract class View {

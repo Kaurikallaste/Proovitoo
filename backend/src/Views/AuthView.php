@@ -1,4 +1,9 @@
 <?php
+namespace Proovitoo\Views;
+
+use Proovitoo\Controllers\AuthController;
+use Exception;
+
 require_once(__DIR__."/../Controllers/AuthController.php");
 require_once("View.php");
 

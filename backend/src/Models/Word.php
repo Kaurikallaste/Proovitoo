@@ -1,4 +1,6 @@
 <?php
+namespace Proovitoo\Models;
+
 class Word {
     private $word;
     private $chars;

@@ -1,4 +1,9 @@
 <?php 
+namespace Proovitoo\Views;
+
+use Proovitoo\Controllers\DatasetController;
+use Exception;
+
 require_once(__DIR__."/../Controllers/DatasetController.php");
 require_once("View.php");
 
