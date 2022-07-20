@@ -2,9 +2,9 @@
 $config = [
     "database" => [
         'host' => '127.0.0.1',
-        'username' => 'root',
-        'database' => 'anagram_db',
-        'password' => 'root',
+        'username' => '',
+        'database' => '',
+        'password' => '',
     ],
     "frontend" => [
         'url' => 'http://localhost:3000'
