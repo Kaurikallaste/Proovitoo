@@ -22,13 +22,13 @@ class AuthController extends Controller {
      * @param String name
      * @param String password
      */
-    public function authUser($name, $password): void {
+    public function authUser($name, $password): bool {
         $userData = self::$db->fetch("SELECT * FROM users WHERE name=?",[$name]);
 
         if(empty($userData)) {
             http_response_code(401);
             echo json_encode(["message" => "Invalid username"]);
-            die;
+            return false;
         }
 
         if(password_verify($password, $userData["password"])) {
@@ -50,9 +50,11 @@ class AuthController extends Controller {
             echo json_encode(["message" => "User logged in"]);
             setcookie("jsonwebtoken", $jwt, $options);
             setcookie("isloggedin", "true", $optionsisLoggedIn);
+            return true;
         } else {
             http_response_code(401);
             echo json_encode(["message" => "Invalid password"]);
+            return false;
         }
     }
 
